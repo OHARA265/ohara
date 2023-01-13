@@ -1,0 +1,6 @@
+Django
+django-allauth
+django-widget-tweaks
+Pillow
+apscheduler
+psycopg2

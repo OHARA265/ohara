@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+<div class="matu">
+    <div class="group">
+        <p>ログアウトしますか？</p>
+        <form method="post" class="form-auth">
+        {% csrf_token %}
+        <div>
+            <button class="button buttonBlue" type="submit">ログアウト</button>
+        </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

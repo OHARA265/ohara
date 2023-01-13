@@ -1,0 +1,40 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block contents %}
+<div class='matu'>
+    <h3>氏名</h3>
+    <p>{{cusyuu.last_name}} {{cusyuu.first_name}}</p>
+    <h3>メールアドレス</h3>
+    <p>{{cusyuu.email}}</p>
+    <h3>住所</h3>
+    <p>{{cusyuu.address}}</p>
+    <h3>郵便番号</h3>
+    <p>{{cusyuu.post_code}}</p>
+    <h3>電話番号</h3>
+    <p>{{cusyuu.tel}}</p>
+</div>
+<form method="POST" class='form-control'>
+    {% csrf_token %}
+    <div class='matu'>
+        <h3>★更新する情報を編集してください☆</h3>
+        {% if user.is_superuser %}
+        <h3>姓</h3>
+        <input type="text" name="lastn" value="{{cusyuu.last_name}}">
+        <h3>名</h3>
+        <input type="text" name="firstn" value="{{cusyuu.first_name}}">
+        <h3>郵便番号</h3>
+        <input type="text" name="postcode" value="{{cusyuu.post_code}}">
+        <h3>住所</h3>
+        <input type="text" name="aaddress" value="{{cusyuu.address}}">
+        {% endif %}
+        <h3>メールアドレス</h3>
+        <input type="text" name="emaila" value="{{cusyuu.email}}">
+        <h3>電話番号</h3>
+        <input type="text" name="tell1" value="{{cusyuu.tel}}">
+        <input type="hidden" name="pk" value="{{cusyuu.pk}}"> 
+            <button type="submit" class="button buttonBlue" onclick='return confirm("お間違いありませんか？");'>編集する</button>
+    </div>
+</form>
+
+{% endblock %}

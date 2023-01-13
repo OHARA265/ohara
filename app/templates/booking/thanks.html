@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% load widget_tweaks %} 
+{% load static %}
+{% block contents %}
+
+
+    <body class = "yoyaku">
+        <table>
+        <h2>予約完了</h2>
+        <img class="check" src="{% static 'imgs/check.jpg' %}">
+        <h1>予約が完了しました</h1>
+        
+
+    </table>
+    <div class="button001">
+        <a href="{% url 'app:index' %}">ホームに戻る</a>
+    </div>
+    </body>
+{% endblock %}

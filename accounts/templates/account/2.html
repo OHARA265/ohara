@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block contents %}
+
+<form method="post">
+<div class="matu">
+{% csrf_token %}
+    <div class="group">
+    {% render_field form.login class='form-control' placeholder='' %}<span class="highlight"></span><span class="bar" required></span>
+    <label>メールアドレス</label>
+    </div>
+    <div class="group">
+    {% render_field form.password class='form-control' placeholder='' %}<span class="highlight"></span><span class="bar" required></span>
+    <label>パスワード</label>
+    </div>
+    <button class="button buttonBlue" type="submit">ログイン
+    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+    </button>
+
+
+    <div class = "comming">
+        <ul style="list-style: none;"></ul>
+    </div>
+    <div class = "comming">
+        <ul style="list-style: none;">
+            <li><a href = "{% url 'app:index' %}">ホームに戻る</a></li>
+        </ul>
+    </div>
+</div>
+</form>
+
+
+
+
+
+{% endblock  %}
+    
+    

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %} 
+
+{% block contents %}
+
+<body class = "cc">
+<h1>予約フォーム</h1>
+<p>下記の内容で予約をいたします。<br>予約は事前の予告なく取り消される場合があります。</p>
+<table class = "yoyaku" align="center">
+    <!-- 👇キャプション -->
+    <caption class = "naiyou">予約内容</caption>
+    <tr>
+      <th class = "aa">個室番号</th> <td class = "bb">{{ zaseki.name }}</td>
+    </tr>
+    <tr>
+      <th class ="aa">日程</th> 
+        <td class = "bb">
+            {% for error in form.non_field_errors %}
+            <h5 class=>{{ error|linebreaksbr }}</h5>
+            {% endfor %} {{ year }}年{{ month }}月{{ day }}日 {{ hour }}:00
+        </td>
+    </tr>
+</table>
+<table class = "yoyaku1" align="center">
+    <caption class = "jyouhou">予約情報</caption>
+    <form method=POST>
+        {% csrf_token %}
+        <tr>
+            <th class = "aa">電話番号</th> <td class = "bb">{% render_field form.tel class="form-control" value=user.tel %}</td>
+        </tr>
+        <tr>
+            <th class = "aa">その他備考</th><td class = "bb">{% render_field form.remarks class="form-control" value="あればここに記入する" %}</td>
+        </tr>
+        
+        {% render_field form.zasekiid class="form-control" value=zaseki.pk %}
+
+</table>
+    <div class="kakutei" align = "center">
+        <button class type="submit" onclick='return confirm("お間違いありませんか？");'>
+                予約確定
+        </button>
+    </div>
+    </form>
+</body>
+{% endblock %}

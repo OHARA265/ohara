@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block contents %}
+
+<form method="post">
+    <div class="matu">
+        {% render_field form.last class="form-control" %}
+        {% render_field form.first class="form-control" %}
+        {% render_field form.birthday class="form-control" %}
+        {% render_field form.postcode class="form-control" %}
+        <button type="submit" class="button buttonBlue">Search</button>
+    </div>
+</form>
+
+{% endblock %}

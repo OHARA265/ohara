@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block contents %}
+<table class="table">
+    <tbody>
+        <tr>
+            <th>ユーザー名</th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th>姓</th>
+            <td>{{ CustomUser.last_name }}</td>
+        </tr>
+        <tr>
+            <th>名</th>
+            <td>{{ user.first_name }}</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

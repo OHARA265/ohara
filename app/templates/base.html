@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang = "ja">
+    <meta chartest="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+            <!--css-->
+            <link rel = "stylesheet" href = "https://unpkg.com/ress/dist/ress.min.css">
+            <link href = "https://fonts.googleapis.com/css?family = Philosopher" rel = "stylesheet">
+            <link href = "{% static 'css/style.css' %}" rel = "stylesheet">
+            <link rel = "stylesheet" href = "https://unpkg.com/ress/dist/ress.min.css">
+            <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+            <div class="box-wrap">
+            <div id="home" class="big-bg">
+                <header class = "page-header wrapper">
+                    <a href="{% url 'app:index' %}">
+                        <img class = "logo" src="{% static 'imgs/library.png' %}" alt="大原図書館">
+                    </a>
+
+                    <input type="checkbox" id="switch">
+                        <label for="switch">
+                            <p><span></span></p>
+                        </label> 
+
+                        <nav id="navwrap">
+                            <ul class="main-nav">
+
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'app:calendarfree' %}">自由予約</a></li>
+                                <li><a href="{% url 'app:zaseki' %}">指定予約</a></li>
+                                <li><a href="{% url 'app:mypage' %}">マイページ</a></li>
+                                <li><a href="{% url 'account_logout' %}">ログアウト</a></li>
+                                {% else %}
+                                <li><a href="{% url 'account_login' %}">ログイン</a></li>   
+                                {% endif %}  
+                                {% if user.is_staff %}
+                                {% endif %}
+                            </ul>
+                            {% if user.is_authenticated %}
+                            <p>{{ user.nickname }}でログイン中</p>
+                            {% else %}
+                            <p>ログインしていません</p>
+                            {% endif %}
+                    
+                </header>
+            </div>
+
+            {% block header %}{% endblock %}
+
+            {% block contents %}{% endblock %}
+
+            {% if user.is_staff %}
+            <div class="menu">
+                <details>
+                    <summary>管理者メニュー</summary>
+                    <li><a href="{% url 'account_signup' %}">サインアップ</a></li>         
+                    <li><a href="{% url 'app:search_a' %}">会員編集</a></li>
+                    <li><a href="{% url 'app:bookingview' %}">予約状況確認</a></li>
+                    {% if user.is_superuser %}
+                    {% if maintenance_mode %}
+                    <li><a href="{% url 'maintenance_mode_off' %}">メンテナンス終了</a></li>
+                    {% else %}
+                    <li><a href="{% url 'maintenance_mode_on' %}">メンテナンス開始</a></li>
+                    {% endif %}
+                {% endif %}
+                  </details>   
+            </div>          
+            {% endif %}
+            <p id="page-top"><a href="#">Page Top</a></p>
+            <footer>
+                <div class="wrapper">
+                    <p><small>&copy; 2022Matsuaki</small></p>
+                </div>
+            </footer>
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+            <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/8-1-1/js/8-1-1.js"></script>
+        </div>
+</html>
+

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block contents %}
+
+    
+
+    <form method="post" action="{% url 'account_signup' %} ">
+    <div class="matu">
+    {% csrf_token %}
+        <div class="group">
+            <label>名前</label><br><br>
+            {% render_field form.first_name class='form-control' placeholder='姓' %}
+            {% render_field form.last_name class='form-control' placeholder='名' %}<span class="highlight"></span><span class="bar"></span>
+        </div>
+        <div class="group">
+            <label>生年月日</label><br><br>
+            {% render_field form.birth class='form-control' placeholder='生年月日' %}<span class="highlight" ></span><span class="bar"></span>
+        </div>
+        <div class="group">
+            <label>電話番号</label><br><br>
+            {% render_field form.tel class='form-control' placeholder='電話番号' %}<span class="highlight"></span><span class="bar"></span>
+        </div>
+        <div class="group">
+            <label>郵便番号</label><br><br>
+            {% render_field form.post_code class='form-control' placeholder='住所' %}<span class="highlight"></span><span class="bar"></span>
+        </div>
+        <div class="group">
+            <label>住所</label><br><br>
+            {% render_field form.address class='form-control' placeholder='住所' %}<span class="highlight"></span><span class="bar"></span>
+        </div>
+        <div class="group">
+            <label>メールアドレス</label><br><br>
+            {% render_field form.email class='form-control' placeholder='メールアドレス' %}<span class="highlight"></span><span class="bar"></span>
+        </div>
+        <div class="group">
+            <label>パスワード</label><br><br>
+            {% render_field form.password1 class='form-control' placeholder='パスワード' %}<span class="highlight"></span><span class="bar"></span>
+        </div>
+        <div class="group">
+            <label>パスワード確認用</label><br><br>
+            {% render_field form.password2 class='form-control' placeholder='パスワード(確認)' %}<span class="highlight"></span><span class="bar"></span>
+        </div>
+        <input type="reset" value="リセットする">
+        <button type="submit" class="button buttonBlue">サインアップ
+        <div class="ripples buttonRipples">
+            <span class="ripplesCircle"></span>
+        </div>
+        </button>
+        <script>
+            var form = document.forms[0];
+            form.onsubmit = function() {
+              // エラーメッセージをクリアする
+              form.password.setCustomValidity("");
+              // パスワードの一致確認
+              if (form.password.value != form.passwordConfirm.value) {
+                // 一致していなかったら、エラーメッセージを表示する
+                form.password.setCustomValidity("パスワードと確認用パスワードが一致しません");
+              }
+            };
+            // 入力値チェックエラーが発生したときの処理
+            form.addEventListener("invalid", function() {
+              document.getElementById("errorMessage").innerHTML = "入力値にエラーがあります";
+            }, false);
+          </script>
+
+
+          <div class = "comming">
+                <ul style="list-style: none;">
+                    <li><a href="login.html">すでにアカウントをお持ちの方はこちら</a></li>
+                </ul>
+          </div>  
+          <div class = "comming">
+            <ul style="list-style: none;">
+                <li><a href = "index.html">ホームに戻る</a></li>
+            </ul>
+        </div>
+    
+    </div>
+    </form>
+
+{% endblock %}
+    
+
+    

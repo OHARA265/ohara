@@ -1,0 +1,120 @@
+html{
+    font-size: 100%;
+  }
+  body{
+    font-family:"Yu Gothic Medium","游ゴシック Medium", YuGothic,"游ゴシック体","ヒラギノ角ゴ Pro W3", sans-serif;
+    line-height: 1.7;
+    color: #432;
+  }
+  a {
+    text-decoration: none;
+  }
+  img{
+    max-width: 50%;
+  }
+  .logo{
+    width: 180px;
+    margin-top: 15px;
+  }
+  .main-nav{
+    display: flex;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    margin-top: 50px;
+    list-style: none;
+  }
+  .main-nav li{
+    margin-left:36px;
+  }
+  .main-nav a{
+    color: rgb(165, 118, 72);
+  }
+  .main-nav a:hover{
+    color: #0bd;
+  }
+  .page-header{
+    display: flex;
+    justify-content: space-between;
+  }
+  .wrapper{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 4%;
+  }
+  .home-content{
+    text-align:center;
+    margin-top: -5.8%;
+    margin-left:8%;
+  }
+  .home-content p{
+    font-size: 1.125rem;
+    margin: 10px 0 42px;
+  }
+  /*見出し*/
+  .page-title{
+    font-size: 50px;
+    font-family: 'Philosopher', serif;
+    text-transform: uppercase;
+    /*font-weight: normal;*/
+  }
+  /*ボタン*/
+  .button{
+    font-size:1.375rem;
+    background: #0bd;
+    color:#fff;
+    border-radius: 5px;
+    padding: 18px 32px;
+  }
+  .button:hover{
+    background: #0090aa;
+  }
+  .big-bg{
+    background-size: cover;
+    background-position: center top;
+  }
+  #home{
+    /*background-image:url(../Desktop/imgs/MicrosoftTeams-image.png);*/
+    min-height: 100vh;
+  }
+  #home .page-title{
+    text-transform: none;
+  }
+
+  /*NEWS*/
+
+  #news{
+    background-image: url(../Desktop/imgs/MicrosoftTeams-image.png);
+    height:270px;
+    margin-bottom: 40px;
+  }
+  #news .page-title{
+    text-align: center;
+  }
+  footer{
+
+    background: #432;
+  
+    text-align: center;
+  
+    padding: 26px 0;
+  
+  }
+  
+  footer p{
+  
+    color: #fff;
+  
+    font-size: 0.875rem;
+  
+  }
+  @media screen and(max-width: 480px) {
+    img {
+    border: 0;
+    }
+    }
+@media screen and(min-width: 1280px) {
+    img {
+    border: 1px solid red;
+    }
+}
+

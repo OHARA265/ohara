@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %} 
+
+{% block contents %}
+<div class=>
+  <div class=>
+    <h5 class=>予約内容</h5>
+    <table class=>
+      <tbody>
+        <tr>
+          <th class=>個室</th>
+          <td class=>{{ zaseki_data.name }}</td>
+        </tr>
+        <tr>
+          <th class=>日程</th>
+          <td class=>
+            {% for error in form.non_field_errors %}
+            <h5 class=>{{ error|linebreaksbr }}</h5>
+            {% endfor %} {{ year }}年{{ month }}月{{ day }}日 {{ hour }}:00
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h5 class="">予約情報</h5>
+    <form method=POST>
+      {% csrf_token %}
+      <table class=>
+        <tbody>
+          <tr>
+            <th class=>電話番号</th>
+            <td class=>
+              {% render_field form.tel class="form-control" value=user.tel %} 
+            </td>
+          </tr>
+          <tr>
+            <th class=>その他備考</th>
+            <td class=>
+              {% render_field form.remarks class="form-control" value="あればここに記入する" %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class=>
+        <button class= type="submit">
+          予約確定
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

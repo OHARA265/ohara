@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block contents %}
+<div class="matu">
+<h1>マイ情報</h1>
+<h3>ニックネーム</h3>
+<p>{{ user.nickname }}</p>
+<a href="{% url 'app:nicknameupdate' %}"><button class="button buttonBlue">編集する</button></a>
+<h2>これまでの軌跡</h2>
+<a href="{% url 'app:kiseki' %}"><button class="button buttonBlue">見てみる</button></a>
+<h2>予約情報</h2>
+<p>過去10件表示</p>
+<a href="{% url 'app:bookingdelete' %}"><button class="button buttonBlue">予約編集</button></a>
+{% for booking in booking_data %}
+<div class="group">
+<p> {{ booking.start }}~{{ booking.end }}</p>
+<p> {{ booking.zaseki }}席</p>
+</div>
+{% endfor %}
+
+</div>
+
+{% endblock %}

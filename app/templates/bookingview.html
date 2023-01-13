@@ -1,0 +1,42 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load widget_tweaks %} 
+
+
+{% block contents %}
+<div class="matu">
+    <h1>予約状況確認</h1>
+    <form method='post'>
+        {% csrf_token %}
+        {%if error == NULL or error2 == NULL %}
+            姓{% render_field form.lastname class="form-control"  placeholder="名前を入れて検索"%}
+            名{% render_field form.firstname class="form-control" placeholder="何も入力しない場合すべて表示されます"%}
+            <button class="button buttonBlue" type="submit">検索</button>
+        {% endif %}
+    </form>
+    {% if booking %}
+    <h3>当日の予約状況</h3>
+    {% elif booking == NULL %}
+    <h3></h3>
+    {% else %}
+    <h3>当日の予約はありません</h3>
+    {% endif %}
+    {% for bookingview in booking %}
+        <p>{{ bookingview.start}}~{{ bookingview.end}}</p>
+        <p>{{ bookingview.customer.last_name }} {{ bookingview.customer.first_name }}様 {{ bookingview.zaseki }}</p>
+        <p>{{ bookingview.remarks }}</p> 
+    {% endfor %}
+    {% for customer_data in customer %}
+        <p>{{ customer_data.start }}~{{ customer_data.end }}</p>
+        <p>{{ customer_data.customer.last_name }} {{ customer_data.customer.first_name }}様　　{{ customer_data.zaseki.name }}</p>
+        <p>{{ customer_data.remarks}}</p>
+    {% endfor %}
+    {% if error is not NULL %}
+        <h3>{{ error }}</h3>
+    {% endif %}
+    {% if error2 == "aaaa"%}
+    {% else %}
+    <h3>{{ error2 }}</h3>
+    {% endif %}
+</div>
+{% endblock %}

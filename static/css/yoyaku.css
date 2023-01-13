@@ -1,0 +1,20 @@
+.yoyaku {
+    border-collapse: collapse;
+    width: 70%; /* 幅 */
+  }
+  .aa, .bb {
+    padding: 20px 15px;
+    border: solid 1px #a5d1f1;
+  }
+  .aa {
+    background-color: #d0ebfd;
+  }
+.cc {
+    text-align: center;
+}
+.naiyou{
+    font-size: 20px;
+}
+.jyouhou{
+    font-size: 20px;
+}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block contents %}
+<div class="matu">
+    {% if kazu.raikan_kazu < 50 %}
+<p>{{ kazu.raikan_kazu }}回来館！
+    もっともっと頑張ろう！😁😭😁
+</p>
+{% elif kazu.raikan_kazu < 100 %}
+<p>{{ kazu.raikan_kazu }}回来館！
+    なかなかやるな（笑）👍👍
+
+</p>
+{% elif kazu.raikan_kazu < 1000 %}
+<p>{{ kazu.raikan_kazu }}回来館！
+    暇なんか？😭😭😭
+</p>
+{% else %}
+<p>{{ kazu.raikan_kazu }}回来館！
+    ?????????????????????????????
+</p>
+{% endif %}
+</div>
+{% endblock %}

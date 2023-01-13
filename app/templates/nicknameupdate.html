@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %} 
+
+{% block contents %}
+<div class="matu">
+    <h1>ニックネーム更新</h1>
+    <form method="post">
+      {% csrf_token %}
+    <div>
+        <p>変更するニックネーム</p>
+        {% render_field form.nickname class="form-control" value=user.nickname  %}
+    </div>
+      <button class="button buttonBlue" type="submit" onclick='return confirm("お間違いありませんか？");'>登録</button>
+    </form>
+</div>
+{% endblock %}

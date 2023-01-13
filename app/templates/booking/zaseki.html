@@ -1,0 +1,160 @@
+{% extends "base.html" %} 
+
+{% block contents %}
+{% load static %}
+<div>
+  <div>
+    <h1>予約する座席を選択する</h1>
+    <p>カーソルを合わせると当日の現時刻から選択中の座席予約状況が見れます。</p>
+    {% if z != 0 %}
+    <p ><font color = 'red' >現在、当日予約が{{ zz }}/{{ z }}埋まっています。</font></p>
+    {% else  %}
+    <p ><font color = 'red' >当日の予約は終了いたしました。</font></p>
+    {% endif %}
+    <p><font color= "lightgreen">緑 = 空き有り</font><p><font color = "red">赤 = 空き無し</font></p></p>
+  </div>
+  <table class ="seki" border = "5" frame = "void">
+    <tr>
+      {% for zaseki in zaseki_data %}
+        {% if zaseki.pk == 1 %}
+        {% if yoyaku.0 == 1 %}
+          <td bgcolor ="red"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki.pk %}"><span>{{ zaseki.name }}</span><span>{{ booking_data.0 }}/{{ y }}予約</span></a>
+          </td>
+        {% else %}
+        <td bgcolor ="lightgreen"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki.pk %}"><span>{{ zaseki.name }}</span><span>{{ booking_data.0 }}/{{ y }}予約</span></a>
+        </td>
+        {% endif %}
+        {% elif zaseki.pk == 2 %}  
+        {% if yoyaku.1 == 1 %}
+          <td bgcolor ="red"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki.pk %}"><span>{{ zaseki.name }}</span><span>{{ booking_data.1 }}/{{ y }}予約</span></a>
+          </td>
+        {% else %}
+        <td bgcolor ="lightgreen"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki.pk %}"><span>{{ zaseki.name }}</span><span>{{ booking_data.1 }}/{{ y }}予約</span></a>
+        </td>
+        {% endif %}
+        {% elif zaseki.pk == 3 %}  
+        {% if yoyaku.2 == 1 %}
+          <td bgcolor ="red"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki.pk %}"><span>{{ zaseki.name }}</span><span>{{ booking_data.2 }}/{{ y }}予約</span></a>
+          </td>
+        {% else %}
+        <td bgcolor ="lightgreen"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki.pk %}"><span>{{ zaseki.name }}</span><span>{{ booking_data.2 }}/{{ y }}予約</span></a>
+        </td>
+        {% endif %}
+        {% elif zaseki.pk == 4 %}  
+        {% if yoyaku.3 == 1 %}
+          <td bgcolor ="red"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki.pk %}"><span>{{ zaseki.name }}</span><span>{{ booking_data.3 }}/{{ y }}予約</span></a>
+          </td>
+        {% else %}
+        <td bgcolor ="lightgreen"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki.pk %}"><span>{{ zaseki.name }}</span><span>{{ booking_data.3 }}/{{ y }}予約</span></a>
+        </td>
+        {% endif %}
+        {% elif zaseki.pk == 5 %}  
+        {% if yoyaku.4 == 1 %}
+          <td bgcolor ="red"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki.pk %}"><span>{{ zaseki.name }}</span><span>{{ booking_data.4 }}/{{ y }}予約</span></a>
+          </td>
+        {% else %}
+        <td bgcolor ="lightgreen"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki.pk %}"><span>{{ zaseki.name }}</span><span>{{ booking_data.4 }}/{{ y }}予約</span></a>
+        </td>
+        {% endif %}
+        {% endif %}
+      {% endfor %}
+    </tr>
+    <tr>    
+      {% for zaseki2 in zaseki_data2 %}
+      {% if zaseki2.pk == 6 %}  
+      {% if yoyaku.5 == 1 %}
+      <td bgcolor ="red"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki2.pk %}"><span>{{ zaseki2.name }}</span><span>{{ booking_data.5 }}/{{ y }}予約</span></a>
+      </td>
+      {% else %}
+      <td bgcolor ="lightgreen"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki2.pk %}"><span>{{ zaseki2.name }}</span><span>{{ booking_data.5 }}/{{ y }}予約</span></a>
+      </td>
+      {% endif %}
+      {% elif zaseki2.pk == 7 %}  
+      {% if yoyaku.6 == 1 %}
+      <td bgcolor ="red"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki2.pk %}"><span>{{ zaseki2.name }}</span><span>{{ booking_data.6 }}/{{ y }}予約</span></a>
+      </td>
+      {% else %}
+      <td bgcolor ="lightgreen"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki2.pk %}"><span>{{ zaseki2.name }}</span><span>{{ booking_data.6 }}/{{ y }}予約</span></a>
+      </td>
+      {% endif %}
+      {% elif zaseki2.pk == 8 %}  
+      {% if yoyaku.7 == 1 %}
+      <td bgcolor ="red"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki2.pk %}"><span>{{ zaseki2.name }}</span><span>{{ booking_data.7 }}/{{ y }}予約</span></a>
+      </td>
+      {% else %}
+      <td bgcolor ="lightgreen"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki2.pk %}"><span>{{ zaseki2.name }}</span><span>{{ booking_data.7 }}/{{ y }}予約</span></a>
+      </td>
+      {% endif %}
+      {% elif zaseki2.pk == 9 %}  
+      {% if yoyaku.8 == 1 %}
+      <td bgcolor ="red"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki2.pk %}"><span>{{ zaseki2.name }}</span><span>{{ booking_data.8 }}/{{ y }}予約</span></a>
+      </td>
+      {% else %}
+      <td bgcolor ="lightgreen"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki2.pk %}"><span>{{ zaseki2.name }}</span><span>{{ booking_data.8 }}/{{ y }}予約</span></a>
+      </td>
+      {% endif %}
+      {% elif zaseki2.pk == 10 %}  
+      {% if yoyaku.9 == 1 %}
+      <td bgcolor ="red"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki2.pk %}"><span>{{ zaseki2.name }}</span><span>{{ booking_data.9 }}/{{ y }}予約</span></a>
+      </td>
+      {% else %}
+      <td bgcolor ="lightgreen"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki2.pk %}"><span>{{ zaseki2.name }}</span><span>{{ booking_data.9 }}/{{ y }}予約</span></a>
+      </td>
+      {% endif %}
+      {% endif %}
+    {% endfor %}
+    </tr>
+  </table>
+  <table class ="seki" border = "5" frame = "void">
+    <tr><h4>コンピューター座席</h4>
+    {% for zaseki3 in zaseki_data3 %}
+    {% if zaseki3.pk == 11 %}  
+    {% if yoyaku.10 == 1 %}
+    <td bgcolor ="red"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki3.pk %}"><span>{{ zaseki3.name }}</span><span>{{ booking_data.10 }}/{{ y }}予約</span></a>
+    </td>
+    {% else %}
+    <td bgcolor ="lightgreen"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki3.pk %}"><span>{{ zaseki3.name }}</span><span>{{ booking_data.10 }}/{{ y }}予約</span></a>
+    </td>
+    {% endif %}
+    {% elif zaseki3.pk == 12 %}  
+    {% if yoyaku.11 == 1 %}
+    <td bgcolor ="red"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki3.pk %}"><span>{{ zaseki3.name }}</span><span>{{ booking_data.11 }}/{{ y }}予約</span></a>
+    </td>
+    {% else %}
+    <td bgcolor ="lightgreen"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki3.pk %}"><span>{{ zaseki3.name }}</span><span>{{ booking_data.11 }}/{{ y }}予約</span></a>
+    </td>
+    {% endif %}
+    {% elif zaseki3.pk == 13%}  
+    {% if yoyaku.12 == 1 %}
+    <td bgcolor ="red"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki3.pk %}"><span>{{ zaseki3.name }}</span><span>{{ booking_data.12 }}/{{ y }}予約</span></a>
+    </td>
+    {% else %}
+    <td bgcolor ="lightgreen"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki3.pk %}"><span>{{ zaseki3.name }}</span><span>{{ booking_data.12 }}/{{ y }}予約</span></a>
+    </td>
+    {% endif %}
+    {% elif zaseki3.pk == 14 %}  
+    {% if yoyaku.13 == 1 %}
+    <td bgcolor ="red"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki3.pk %}"><span>{{ zaseki3.name }}</span><span>{{ booking_data.13 }}/{{ y }}予約</span></a>
+    </td>
+    {% else %}
+    <td bgcolor ="lightgreen"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki3.pk %}"><span>{{ zaseki3.name }}</span><span>{{ booking_data.13 }}/{{ y }}予約</span></a>
+    </td>
+    {% endif %}
+    {% elif zaseki3.pk == 15 %}  
+    {% if yoyaku.14 == 1 %}
+    <td bgcolor ="red"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki3.pk %}"><span>{{ zaseki3.name }}</span><span>{{ booking_data.14 }}/{{ y }}予約</span></a>
+    </td>
+    {% else %}
+    <td bgcolor ="lightgreen"><a class="btn02 rotateback"   href="{% url 'app:calendar' zaseki3.pk %}"><span>{{ zaseki3.name }}</span><span>{{ booking_data.14 }}/{{ y }}予約</span></a>
+    </td>
+    {% endif %}
+    {% endif %}
+  {% endfor %}
+    </tr>
+
+</table>
+<div>
+  <p>マップ</p>
+<img src= "{% static 'imgs/demo.png' %}" >
+</div>
+{% endblock %}

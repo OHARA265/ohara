@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="description" content="blogの練習をするページです。" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>询问</title>
+        <link rel="stylesheet" href="https://tomap.co/ZeroPlusReset.css" />
+        <link rel="stylesheet" href="css/style.css" media="all" />
+    </head>
+<body>
+    <div class ="kuseki">空席状況</div>
+    <!--<div class = "entrance"><p>入口</p></div>-->
+    <table class ="seki" border = "5" frame = "void">
+            <tr>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+                <td>A</td>
+            </tr>
+    </table>
+    <!--<div class = "Exit"><p>出口</p></div>-->
+
+
+
+    
+
+        <div>
+          <div>
+          <div class = "mae">
+            <a
+              class="btn btn-warning"
+              href="{% url 'app:calendar' zaseki_data.pk before.year before.month before.day %}">前週</a>
+          </div>
+          </div>
+          <div class = "usiro">
+          <div>
+            <a
+              class="btn btn-warning"
+              href="{% url 'app:calendar' zaseki_data.pk next.year next.month next.day %}">次週</a>
+          </div>
+          </div>
+        </div>
+  
+  
+        <table class="biz-hour">
+          <tbody>
+            <tr>
+              <th>診療時間</th>
+              <th>月</th>
+              <th>火</th>
+              <th>水</th>
+              <th>木</th>
+              <th>金</th>
+              <th class="sat">土</th>
+              <th class="sun">日</th>
+            </tr>
+            <tr>
+              <td>9:00</td>
+              <td>●</td><!-- 月 -->
+              <td>●</td><!-- 火 -->
+              <td>●</td><!-- 水 -->
+              <td>●</td><!-- 木 -->
+              <td>●</td><!-- 金 -->
+              <td>●</td><!-- 土 -->
+              <td>ー</td><!-- 日 -->
+        
+            </tr>
+            <tr>
+              <td>10:00</td>
+              <td>●</td><!-- 月 -->
+              <td>●</td><!-- 火 -->
+              <td>●</td><!-- 水 -->
+              <td>ー</td><!-- 木 -->
+              <td>●</td><!-- 金 -->
+              <td>●</td><!-- 土 -->
+              <td>ー</td><!-- 日 -->
+            </tr>
+            <tr>
+              <td>11:00</td>
+              <td>●</td><!-- 月 -->
+              <td>●</td><!-- 火 -->
+              <td>●</td><!-- 水 -->
+              <td>ー</td><!-- 木 -->
+              <td>●</td><!-- 金 -->
+              <td>●</td><!-- 土 -->
+              <td>ー</td><!-- 日 -->
+            </tr>
+            <tr>
+              <td>12:00</td>
+              <td>●</td><!-- 月 -->
+              <td>●</td><!-- 火 -->
+              <td>●</td><!-- 水 -->
+              <td>ー</td><!-- 木 -->
+              <td>●</td><!-- 金 -->
+              <td>●</td><!-- 土 -->
+              <td>ー</td><!-- 日 -->
+            </tr>
+            <tr>
+              <td>13:00</td>
+              <td>●</td><!-- 月 -->
+              <td>●</td><!-- 火 -->
+              <td>●</td><!-- 水 -->
+              <td>ー</td><!-- 木 -->
+              <td>●</td><!-- 金 -->
+              <td>●</td><!-- 土 -->
+              <td>ー</td><!-- 日 -->
+            </tr>
+            <tr>
+              <td>14:00</td>
+              <td>●</td><!-- 月 -->
+              <td>●</td><!-- 火 -->
+              <td>●</td><!-- 水 -->
+              <td>ー</td><!-- 木 -->
+              <td>●</td><!-- 金 -->
+              <td>●</td><!-- 土 -->
+              <td>ー</td><!-- 日 -->
+            </tr>
+            <tr>
+              <td>15:00</td>
+              <td>●</td><!-- 月 -->
+              <td>●</td><!-- 火 -->
+              <td>●</td><!-- 水 -->
+              <td>ー</td><!-- 木 -->
+              <td>●</td><!-- 金 -->
+              <td>●</td><!-- 土 -->
+              <td>ー</td><!-- 日 -->
+            </tr>
+            <tr>
+              <td>16:00</td>
+              <td>●</td><!-- 月 -->
+              <td>●</td><!-- 火 -->
+              <td>●</td><!-- 水 -->
+              <td>ー</td><!-- 木 -->
+              <td>●</td><!-- 金 -->
+              <td>●</td><!-- 土 -->
+              <td>ー</td><!-- 日 -->
+            </tr>
+            <tr>
+              <td>17:00</td>
+              <td>●</td><!-- 月 -->
+              <td>●</td><!-- 火 -->
+              <td>●</td><!-- 水 -->
+              <td>ー</td><!-- 木 -->
+              <td>●</td><!-- 金 -->
+              <td>●</td><!-- 土 -->
+              <td>ー</td><!-- 日 -->
+            </tr>
+            
+          </tbody>
+        </table>
+      </body>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block contents %}
+
+<form method="GET" action="{% url 'app:search_b' %}" class='form-control'>
+    {% csrf_token %}
+    <div class='matu'>
+        <div class="group">
+            <input type="search" name="last_name"  placeholder="姓" required>
+            <input type="search" name="first_name"  placeholder="名" required>
+            <input type="search" name="birth"  placeholder="生年月日" required>
+            <input type="search" name="yuubin"  placeholder="郵便番号" required>
+        </div>
+    <button type="submit" class="button buttonBlue">Search</button>
+    </div>
+</form>
+
+{% endblock %}

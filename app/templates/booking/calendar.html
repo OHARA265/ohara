@@ -1,0 +1,92 @@
+{% extends "base.html" %} {% block contents %}
+
+<div>
+  <div>
+
+    <div>
+      <div >
+        <div>
+          <div>
+            <h3>
+              {{ zaseki_data.name }}
+            </h3>
+            <hr />
+            <p>{{ zaseki_data.description|linebreaksbr }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h1>予約カレンダー</h1>
+    <p>{{ start_day }}～{{ end_day }}</p>
+  </div>
+
+  <div >
+    <div>
+      <div class = "mae">
+      <a
+        href="{% url 'app:calendar' zaseki_data.pk before.year before.month before.day %}"
+        >前週</a
+      >
+      </div>
+    </div>
+    <div class = "usiro">
+    <div>
+      <a
+        href="{% url 'app:calendar' zaseki_data.pk next.year next.month next.day %}"
+        >次週</a>
+    </div>
+    </div>
+  </div>
+  <div>
+    <table class="biz-hour" width="1370">
+      <thead>
+        <tr>
+          <th></th>
+          {% for day in days %} 
+          {% if day.weekday == 0 %}
+          <th>{{ day | date:"d(D)" }}</th>
+          {% elif day.weekday == 1 %}
+          <th>{{ day | date:"d(D)休館日" }}</th>
+          {% elif day.weekday == 5 %}
+          <th>{{ day | date:"d(D)" }}</th>
+          {% elif day.weekday == 6 %}
+          <th>{{ day | date:"d(D)" }}</th>
+          {% else %}
+          <th>{{ day | date:"d(D)" }}</th>
+          {% endif %} {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for hour, schedules in calendar.items %}
+        <tr>
+          <td>{{ hour }}:00</td>
+          {% for datetime, book in schedules.items %}
+          <td>
+            {% if datetime < today %}
+            <i>-</i>
+            {% elif datetime.weekday == 1 %} 
+            <i>-</i>
+            {% elif datetime == today and hour <= dayz %}
+            <i>-</i>
+            {% elif datetime > dayss %}
+            <i>-</i>
+            {% elif book %}
+            <a href="{% url 'app:booking' zaseki_data.pk datetime.year datetime.month datetime.day hour %}">
+              <i class="far fa-circle text-info"></i>
+            </a>
+            {% else %}
+            <i class="fas fa-times text-danger"></i>
+            {% endif %}
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

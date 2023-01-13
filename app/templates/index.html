@@ -1,0 +1,113 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block contents %}
+<body>
+
+<div class = "sumaho">
+    <img id="pic" src="{% static 'imgs/lib1.png' %}" width="200" height="200">
+
+    <script>
+        
+    'use strict';
+        
+    const img = ["{% static 'imgs/mainslide-1.jpg' %}", "{% static 'imgs/mainslide-2.jpg' %}", "{% static 'imgs/mainslide-3.jpg' %}","{% static 'imgs/mainslide-5.jpg' %}"];
+        
+    let count = -1;
+        
+    picChange(); // 関数を実行
+        
+    function picChange() {
+        
+        count++;
+        
+        // カウントが最大になれば配列を初期値に戻すため「0」を指定する
+        if (count == img.length) count = 0;
+        
+        // 画像選択
+        document.getElementById("pic").src = img[count];
+        
+        // 1秒ごとに実行
+        setTimeout("picChange()", 4000);
+             
+    }
+        
+    </script>
+
+</div>
+
+
+    
+
+<div class="news-contents wrapper">
+    <article id ="content">
+        <header class="post-info">
+            <h2 class="post-title">リニューアルオープン</h2>
+            <p class="post-date">11/11<span>2022</span></p>
+            <p class="post-cat">館内のご案内</p>
+        </header>
+        <p>本を手にお茶を飲みながらゆったりと過ごせる「居心地の良い滞在型の図書館」であり、友人との会話を楽しんだり、様々なイベントを開催する「にぎわいのある図書館」でもある大原図書館内をご紹介します。</p>
+                        
+
+
+        <!--お知らせ欄-->
+        <ul class="news-list">
+            {% for news_2 in news1 %}
+            <li class="item">
+                <a>
+                    <p class="date">{{ news_2.day }}</p>
+                    <p class="category"><span>{{ news_2.title }}</span></p>
+                    <p class="title">{{ news_2.news }}</p>
+                </a>
+            </li>
+            {% if user.is_staff %}
+            <a href="{% url 'app:newsupdate2' news_2.pk %}">お知らせ編集</a>
+            {% endif %}    
+            {% endfor %}
+            
+            {% for  news_1 in news2 %}
+            <li class="item">
+                <a href="#">
+                    <p class="date">{{ news_1.day }}</p>
+                    <p class="category"><span>{{ news_1.title }}</span></p>
+                    <p class="title">{{ news_1.news }}</p>
+                </a>
+            </li>
+            {% if user.is_staff %}
+            <a href="{% url 'app:newsupdate2' news_1.pk %}">お知らせ編集</a>
+            {% endif %}    
+            {% endfor %}
+        </ul>
+                            
+
+    </article>
+
+    <aside id = "sidebar">
+        <h3 class="sub-title">カテゴリー：紹介</h3>
+        <ul class="sub-menu">
+            <li><a href="">館内案内</a></li>
+            {% if user.is_staff %}
+            <li><a href="{% url 'app:newsupdate' %}">お知らせ更新</a></li>
+            {% endif %}
+            <li><a href="">イベント</a></li>
+            <li><a href="{% url 'app:question' %}">よくある質問</a></li>
+        </ul>
+
+        <h3 class="sub-title">大原図書館の交通アクセス</h3>
+        <div class = "sub1-title"><h4>施設名</h4><p>大原図書館</p></div>
+        <h4>住所・地図</h4><p>〒450-0002 愛知県名古屋市中村区名駅３丁目 ２０番８号</p>
+        <div class = "map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.355093912828!2d136.886685715591!3d35.17270118031602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600376db82aeeaed%3A0xce812977f295acd4!2z5aSn5Y6f57C_6KiY5oOF5aCx5Yy755mC5bCC6ZaA5a2m5qCh!5e0!3m2!1sja!2sjp!4v1668748717604!5m2!1sja!2sjp" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class = "sub1-title"></div><h4>電話番号</h4><a href = "tel:052-582-7735">052-582-7735</a>
+        <div class = "sub1-title"></div><h4>アクセス</h4><p>JR「名古屋駅」ユニモール地下街12番、14番出口すぐ、地下鉄「国際センター駅」1番出口すぐ</p>
+
+        <div class = "kojin">
+                        
+            <li><a href="sp.html"><h5>プライバシーポリシー</h5></a></li>
+        </div>
+    </aside>
+</div><!--news-content-->
+
+{% endblock %}
+        

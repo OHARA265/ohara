@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block contents %}
+<div class="matu">
+<h1>予約情報</h1>
+<form method="post">
+    {% csrf_token %}
+{% for booking in booking_data %}
+<div class="group">
+<input type="radio" name="delete" value="{{booking.pk}}">{{booking.start}}~{{booking.end}}
+<p>{{ booking.zaseki }}</p>
+</div>
+{% empty %}
+<p>現在予約していません</p>
+{% endfor %}
+<input type="submit" value="削除" onclick='return confirm("お間違いありませんか？");'>
+</form>
+</div>
+{% endblock %}

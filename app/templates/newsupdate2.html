@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %} 
+
+{% block contents %}
+<div class="matu">
+    <h1>お知らせ編集</h1>
+    <form method="post">
+      {% csrf_token %}
+    <div>
+      <p>タイトル</p>
+        {% render_field form.title class="form-control" value=newS.title %}
+  </div>
+  <div>
+    <p>重要度</p>
+    <div>
+      {% render_field form.important class="form-control" %}
+    </div>
+  </div>
+    <div>
+        <p>入力内容</p>
+        {% render_field form.news class="form-control" %} {{ newS.news }}　<p>同じものを扱う場合コピーしてください</p>
+    </div>
+      <button class="button buttonBlue" type="submit" onclick='return confirm("お間違いありませんか？");'>編集</button>
+    </form>
+</div>
+{% endblock %}
