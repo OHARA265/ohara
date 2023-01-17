@@ -30,9 +30,6 @@
         <!--お知らせ欄-->
         <ul class="news-list">
             {% for news_2 in news1 %}
-            {% if user.is_staff %}
-            <a href="{% url 'app:newsupdate2' news_2.pk %}">お知らせ編集</a>
-            {% endif %}    
             <li class="item">
                 <a>
                     <p class="date">{{ news_2.day }}</p>
