@@ -30,6 +30,9 @@
         <!--お知らせ欄-->
         <ul class="news-list">
             {% for news_2 in news1 %}
+            {% if user.is_staff %}
+            <a href="{% url 'app:newsupdate2' news_2.pk %}">お知らせ編集</a>
+            {% endif %}    
             <li class="item">
                 <a>
                     <p class="date">{{ news_2.day }}</p>
@@ -37,12 +40,12 @@
                     <p class="title">{{ news_2.news }}</p>
                 </a>
             </li>
-            {% if user.is_staff %}
-            <a href="{% url 'app:newsupdate2' news_2.pk %}">お知らせ編集</a>
-            {% endif %}    
             {% endfor %}
             
             {% for  news_1 in news2 %}
+            {% if user.is_staff %}
+            <a href="{% url 'app:newsupdate2' news_1.pk %}">お知らせ編集</a>
+            {% endif %}    
             <li class="item">
                 <a href="#">
                     <p class="date">{{ news_1.day }}</p>
@@ -50,9 +53,6 @@
                     <p class="title">{{ news_1.news }}</p>
                 </a>
             </li>
-            {% if user.is_staff %}
-            <a href="{% url 'app:newsupdate2' news_1.pk %}">お知らせ編集</a>
-            {% endif %}    
             {% endfor %}
         </ul>
                             

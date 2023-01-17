@@ -283,7 +283,7 @@ margin:0 5px;
 /*メイン(article枠)*/
 
 article{
-  width: 74%;
+  width: auto;
   margin-right: 5%;
 }
 
@@ -349,7 +349,7 @@ img.example{
 /*サイド(aside)*/
 
 aside{
-  width: 30%;
+  width: auto;
 }
 
 .news-contents{
