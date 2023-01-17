@@ -1,44 +1,21 @@
 {% extends 'base.html' %} 
 {% load static %}
-
 {% block contents %}
 <body>
 
 <div class = "sumaho">
-    <img id="pic" src="{% static 'imgs/lib1.png' %}" width="200" height="200">
-
-    <script>
-        
-    'use strict';
-        
-    const img = ["{% static 'imgs/mainslide-1.jpg' %}", "{% static 'imgs/mainslide-2.jpg' %}", "{% static 'imgs/mainslide-3.jpg' %}","{% static 'imgs/mainslide-5.jpg' %}"];
-        
-    let count = -1;
-        
-    picChange(); // 関数を実行
-        
-    function picChange() {
-        
-        count++;
-        
-        // カウントが最大になれば配列を初期値に戻すため「0」を指定する
-        if (count == img.length) count = 0;
-        
-        // 画像選択
-        document.getElementById("pic").src = img[count];
-        
-        // 1秒ごとに実行
-        setTimeout("picChange()", 4000);
-             
-    }
-        
-    </script>
-
+    
+    <ul class="slider">
+        <img src="{% static 'imgs/mainslide-1.jpg' %}">
+        <img src="{% static 'imgs/mainslide-2.jpg' %}">
+        <img src="{% static 'imgs/mainslide-3.jpg' %}">
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-1/js/6-1-1.js"></script>
 </div>
 
-
     
-
 <div class="news-contents wrapper">
     <article id ="content">
         <header class="post-info">
