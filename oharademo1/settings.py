@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-7lw8ca6wk9-5hg+mtgsz_$p1%lg9n7@$d-)o^eg^v7^%+81s$$
 DEBUG = True
 
 # ALLOWED_HOSTS = ['127.0.0.1']
-# ALLOWED_HOSTS = ['35ba-2001-268-d009-a8ea-3958-1c55-3fa0-4669.jp.ngrok.io']
-ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
+ALLOWED_HOSTS = ['4826-223-29-13-138.jp.ngrok.io']
+# ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
 
 
 # Application definition
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    # 'maintenance_mode',
+    'maintenance_mode',
     'app.apps.AppConfig',
     'accounts.apps.AccountsConfig',
 
